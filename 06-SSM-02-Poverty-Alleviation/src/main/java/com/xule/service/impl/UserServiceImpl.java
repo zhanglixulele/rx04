@@ -4,6 +4,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.xule.dao.UserMapper;
 import com.xule.entity.User;
+import com.xule.entity.UserExample;
 import com.xule.service.UserService;
 import com.xule.vo.DataVO;
 import com.xule.vo.ResultVO;
@@ -81,7 +82,7 @@ public class UserServiceImpl implements UserService {
         ResultVO vo;
         //判断是否存在创建时间，没有就自己加上
         if (user.getCreateTime()==null){
-            user.setCreateTime(new Date());
+            user.setCreateTime(new  Date());
         }
         int affectedRows = userMapper.insertSelective(user);
         if (affectedRows>0){

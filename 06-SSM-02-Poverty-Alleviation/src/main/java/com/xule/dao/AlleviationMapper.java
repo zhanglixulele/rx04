@@ -2,6 +2,8 @@ package com.xule.dao;
 
 import com.xule.entity.Alleviation;
 import com.xule.entity.AlleviationExample;
+
+import java.util.Date;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
@@ -33,4 +35,7 @@ public interface AlleviationMapper {
     int updateByPrimaryKeyWithBLOBs(Alleviation record);
 
     int updateByPrimaryKey(Alleviation record);
+
+    //点击量加一
+    Integer click(@Param("id") Long id, @Param("lastClickTime") Date lastClickTime);
 }

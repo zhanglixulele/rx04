@@ -2,6 +2,8 @@ package com.xule.dao;
 
 import com.xule.entity.VolunteerRecruitment;
 import com.xule.entity.VolunteerRecruitmentExample;
+
+import java.util.Date;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
@@ -33,4 +35,7 @@ public interface VolunteerRecruitmentMapper {
     int updateByPrimaryKeyWithBLOBs(VolunteerRecruitment record);
 
     int updateByPrimaryKey(VolunteerRecruitment record);
+
+    //加一
+    Integer click(@Param("id") Long id,@Param("lastClickTime") Date lastClickTime);
 }

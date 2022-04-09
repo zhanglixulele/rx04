@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xule.dao.CarouselMapper">
+  <!--更改轮播图的状态-->
+  <update id="changeStatus">
+    update carousel
+    set available =!available
+    where id=#{id}
+  </update>
+
   <resultMap id="BaseResultMap" type="com.xule.entity.Carousel">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
@@ -104,7 +111,7 @@
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{picture,jdbcType=VARCHAR}, 
       #{available,jdbcType=BIT})
   </insert>
-  <insert id="insertSelective" parameterType="com.xule.entity.Carousel">
+  <insert id="insertSelective" keyProperty="id" useGeneratedKeys="true" parameterType="com.xule.entity.Carousel">
     insert into carousel
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">

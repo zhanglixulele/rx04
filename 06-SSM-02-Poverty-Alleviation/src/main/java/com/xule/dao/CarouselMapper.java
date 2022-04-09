@@ -27,4 +27,6 @@ public interface CarouselMapper {
     int updateByPrimaryKeySelective(Carousel record);
 
     int updateByPrimaryKey(Carousel record);
+    //更改轮播图是否可用的状态
+    Integer changeStatus(@Param("id") Integer id);
 }
